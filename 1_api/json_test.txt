@@ -1,0 +1,39 @@
+{
+	"editoraNome": "Leya"
+}
+{
+	"editoraNome": "Arqueiro"
+}
+{
+	"editoraNome": Martins Fontes
+}
+
+
+
+{
+	"autorNome": "Patrick Rothfuss"
+}
+{
+	"autorNome": "Brandon Sanderson"
+}
+{
+	"autorNome": "J. R. R. Tolkien"
+}
+
+
+
+{
+	"livroNome": "O nome do vento",
+	"editora": 1,
+	"autor": 1
+}
+{
+	"livroNome": "O Império Final",
+	"editora": 2,
+	"autor": 2
+}
+{
+	"livroNome": "A Sociedade do Anel",
+	"editora": 2,
+	"autor": 2
+}

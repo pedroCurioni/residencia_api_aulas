@@ -1,9 +1,6 @@
 package com.residencia.firstapi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +16,10 @@ public class Autor {
 	@Column(name = "autor_nome")
 	private String autorNome;
 
+	@OneToMany(mappedBy = "autor")
+	@JsonIgnore
+	private List<Livro> livroList;
+
 	public Integer getAutorId() {
 		return autorId;
 	}
@@ -33,5 +34,13 @@ public class Autor {
 
 	public void setAutorNome(String autorNome) {
 		this.autorNome = autorNome;
+	}
+
+	public List<Livro> getLivroList() {
+		return livroList;
+	}
+
+	public void setLivroList(List<Livro> livroList) {
+		this.livroList = livroList;
 	}
 }
