@@ -1,5 +1,6 @@
 package com.residencia.firstapi.service;
 
+import com.residencia.firstapi.entity.Editora;
 import com.residencia.firstapi.entity.Livro;
 import com.residencia.firstapi.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,11 @@ public class LivroService {
     public Livro save(Livro livro){
         return livroRepository.save(livro);
     }
-    
+
     public Livro update(Livro livro, Integer id){
-        return livroRepository.save(livro);
+        Livro autualizado = findById(id);
+        autualizado.setLivroNome(livro.getLivroNome());
+        return livroRepository.save(autualizado);
     }
     
     public void delete(Integer id){

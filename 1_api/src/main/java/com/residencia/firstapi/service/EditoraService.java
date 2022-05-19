@@ -26,7 +26,9 @@ public class EditoraService {
     }
 
     public Editora update(Editora editora, Integer id){
-        return editoraRepository.save(editora);
+        Editora autualizada = findById(id);
+        autualizada.setEditoraNome(editora.getEditoraNome());
+        return editoraRepository.save(autualizada);
     }
 
     public void delete(Integer id){
