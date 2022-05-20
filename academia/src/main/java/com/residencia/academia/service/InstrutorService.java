@@ -31,8 +31,4 @@ public class InstrutorService {
     public void delete(Integer id) {
         instrutorRepositorio.deleteById(id);
     }
-
-    public void delete(Instrutor instrutor){
-        instrutorRepositorio.delete(instrutor);
-    }
 }

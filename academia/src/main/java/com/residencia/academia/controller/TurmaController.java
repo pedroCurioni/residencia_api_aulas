@@ -37,7 +37,7 @@ public class TurmaController {
         return new ResponseEntity<>(turmaService.save(turma), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete (Integer id) {
         turmaService.delete(id);
     }

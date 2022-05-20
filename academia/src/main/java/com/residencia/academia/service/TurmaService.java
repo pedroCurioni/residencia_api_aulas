@@ -32,7 +32,4 @@ public class TurmaService {
         turmaRepositorio.deleteById(id);
     }
 
-    public void delete(Turma turma){
-        turmaRepositorio.delete(turma);
-    }
 }

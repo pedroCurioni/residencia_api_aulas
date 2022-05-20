@@ -38,8 +38,8 @@ public class InstrutorController {
         return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public void delete (Integer id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
         instrutorService.delete(id);
     }
 }
