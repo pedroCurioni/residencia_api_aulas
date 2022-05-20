@@ -22,7 +22,7 @@ public class InstrutorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Instrutor> findInstrutorById(@PathVariable Integer id) {
+    public ResponseEntity<Instrutor> findById(@PathVariable Integer id) {
         //return new ResponseEntity<>(instrutorService.findInstrutorById(id), HttpStatus.OK);
         Instrutor instrutor = instrutorService.findById(id);
         return new ResponseEntity<>(instrutor, HttpStatus.OK);
@@ -30,16 +30,16 @@ public class InstrutorController {
 
     @PostMapping
     public ResponseEntity<Instrutor> save(@RequestBody Instrutor instrutor) {
-        return new ResponseEntity<>(instrutor, HttpStatus.OK);
+        return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<Instrutor> update(@RequestBody Instrutor instrutor) {
-        return new ResponseEntity<>(instrutor, HttpStatus.OK);
+        return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity delete (Integer id) {
-        return new ResponseEntity(instrutorService.findById(id), HttpStatus.OK);
+    public void delete (Integer id) {
+        instrutorService.delete(id);
     }
 }
