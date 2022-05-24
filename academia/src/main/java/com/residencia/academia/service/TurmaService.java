@@ -17,14 +17,16 @@ public class TurmaService {
     }
 
     public Turma findById(Integer id) {
-        return turmaRepositorio.findById(id).get();
+        return turmaRepositorio.findById(id).isPresent() ?
+                turmaRepositorio.findById(id).get() :
+                null;
     }
 
     public Turma save(Turma turma) {
         return turmaRepositorio.save(turma);
     }
 
-    public Turma update(Turma turma, Integer id) {
+    public Turma update(Turma turma) {
         return turmaRepositorio.save(turma);
     }
 

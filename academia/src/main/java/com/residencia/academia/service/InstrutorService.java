@@ -17,14 +17,16 @@ public class InstrutorService {
     }
 
     public Instrutor findById(Integer id) {
-        return instrutorRepositorio.findById(id).get();
+
+        return instrutorRepositorio.findById(id).isPresent()?
+                instrutorRepositorio.findById(id).get():null;
     }
 
     public Instrutor save(Instrutor instrutor) {
         return instrutorRepositorio.save(instrutor);
     }
 
-    public Instrutor update(Instrutor instrutor, Integer id) {
+    public Instrutor update(Instrutor instrutor) {
         return instrutorRepositorio.save(instrutor);
     }
 

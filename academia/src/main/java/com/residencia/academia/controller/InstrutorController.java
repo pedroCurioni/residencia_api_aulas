@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/instrutor")
 public class InstrutorController {
     @Autowired
-    InstrutorService instrutorService;
+    private InstrutorService instrutorService;
 
     @GetMapping
     public ResponseEntity<List<Instrutor>> findAll() {
@@ -23,23 +23,27 @@ public class InstrutorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Instrutor> findById(@PathVariable Integer id) {
-        //return new ResponseEntity<>(instrutorService.findInstrutorById(id), HttpStatus.OK);
         Instrutor instrutor = instrutorService.findById(id);
-        return new ResponseEntity<>(instrutor, HttpStatus.OK);
+        if (null == instrutor) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(instrutor, HttpStatus.OK);
+        }
     }
 
     @PostMapping
     public ResponseEntity<Instrutor> save(@RequestBody Instrutor instrutor) {
-        return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.OK);
+        return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<Instrutor> update(@RequestBody Instrutor instrutor) {
-        return new ResponseEntity<>(instrutorService.save(instrutor), HttpStatus.OK);
+        return new ResponseEntity<>(instrutorService.update(instrutor), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
         instrutorService.delete(id);
+        return new ResponseEntity<>("", HttpStatus.OK);
     }
 }
